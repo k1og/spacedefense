@@ -3,8 +3,10 @@
 public class HealthManager : MonoBehaviour
 {
     IExplodable explodable;
-    public int hp = 100;
-    private int HP
+    TextMesh textMesh;
+    [SerializeField]
+    private int hp = 1;
+    public int HP
     {
         get 
         {
@@ -37,13 +39,32 @@ public class HealthManager : MonoBehaviour
             else
             {
                 hp = value;
+                if (textMesh != null)
+                {
+                    textMesh.text = value.ToString();
+                }
             }
         }
     }
-    void Start()
+    void Awake()
     {
         explodable = GetComponent<IExplodable>();
+        textMesh = GetComponent<TextMesh>();
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        if (meshRenderer != null)
+        {
+            meshRenderer.sortingOrder = 2;
+        }
     }
+
+    void Start()
+    {
+        if (textMesh != null)
+        {
+            textMesh.text = hp.ToString();
+        }
+    }
+
     public void TakeDamage(int damage) 
     {
         HP -= damage;

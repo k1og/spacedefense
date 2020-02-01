@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(PolygonCollider2D))]
-public class PlayerColliderController : MonoBehaviour
+public class PlayerColliderController : MonoBehaviour, IExplodable
 {
     PolygonCollider2D coll;
     HealthManager healthManager;
-    void Start()
+    public GameObject explosion;
+    void Awake()
     {
         coll = GetComponent<PolygonCollider2D>();
         coll.isTrigger = true;
@@ -21,6 +22,12 @@ public class PlayerColliderController : MonoBehaviour
                 healthManager.Kill();
             }
         }
+    }
+
+    public void Explode()
+    {
+        GameObject explosionInstanse = Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(explosionInstanse, 1);
     }
 
 }

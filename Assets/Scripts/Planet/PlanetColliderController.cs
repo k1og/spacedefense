@@ -6,7 +6,7 @@ public class PlanetColliderController : MonoBehaviour
 {
     HealthManager healthManager;
 
-    void Start()
+    void Awake()
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }

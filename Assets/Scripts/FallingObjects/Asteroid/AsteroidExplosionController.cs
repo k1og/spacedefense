@@ -2,6 +2,7 @@
 
 public class AsteroidExplosionController : MonoBehaviour
 {
+    // TODO: Separate in general component ?
     float timer;
 
     void OnEnable()

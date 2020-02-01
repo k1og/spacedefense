@@ -10,7 +10,7 @@ public class BulletController : MonoBehaviour
 
     // FIXME: speed 0.05 pool lags
     public float speed = 150;
-    public int damage = 10;
+    public int damage = 1;
 
     Vector2 topLeftCamCorner;
     float farthestVisibleDistance;
@@ -40,7 +40,7 @@ public class BulletController : MonoBehaviour
 
     void Update()
     {
-        // Maybe add offset
+        // TODO: Separate in general component ?
         if (farthestVisibleDistance + offset < bulletDistance)
         {
             this.gameObject.SetActive(false);

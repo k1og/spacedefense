@@ -7,19 +7,19 @@ public class AsteroidController : MonoBehaviour, IExplodable
     GameObject currentaAsteroidExplosion;
     GameObject tempAsteroidExplosion;
     public int damage = 10;
-    // Start is called before the first frame update
-    void Start()
+    HealthManager colliderHealthManager;
+    void Awake()
     {
         asteroidExplosionPool = GameObject.Find("AsteroidExplosionPool").GetComponent<PoolManager>();
         GetComponent<BoxCollider2D>().isTrigger = true;
-    }
+    }   
 
     void OnTriggerEnter2D(Collider2D collider) 
     {
-        HealthManager healthManager = collider.gameObject.GetComponent<HealthManager>();
-        if (healthManager != null)
+        colliderHealthManager = collider.gameObject.GetComponent<HealthManager>();
+        if (colliderHealthManager != null)
         {
-            healthManager.TakeDamage(damage);
+            colliderHealthManager.TakeDamage(damage);
         }
     }
 

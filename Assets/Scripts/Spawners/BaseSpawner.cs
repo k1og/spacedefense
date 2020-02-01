@@ -5,15 +5,12 @@ public abstract class BaseSpawner : MonoBehaviour
 {
     public PoolManager objectPool;
     public GameObject currentObject;
-    GameObject tempObject;
+    private GameObject tempObject;
     public float spawnRate = 1f;
+    private IEnumerator spawningCoroutine;
+    public Transform cameraTransform;
 
-    virtual public void Start()
-    {
-        StartSpawning();
-    }
-
-    IEnumerator StartSpawningCoroutine()
+    private IEnumerator StartSpawningCoroutine()
     {
         while (true)
         {
@@ -22,17 +19,23 @@ public abstract class BaseSpawner : MonoBehaviour
         }
     }
 
-    public void StartSpawning()
+    void Awake()
     {
-        StartCoroutine(StartSpawningCoroutine());
+        cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
-    public void StopSpawning()
+    virtual public void StartSpawning()
     {
-        StopCoroutine(StartSpawningCoroutine());
+        spawningCoroutine = StartSpawningCoroutine();
+        StartCoroutine(spawningCoroutine);
     }
 
-    virtual public void Spawn()
+    virtual public void StopSpawning()
+    {
+        StopCoroutine(spawningCoroutine);
+    }
+
+    private void Spawn()
     {
         for (int i = 0; i < objectPool.gameObjectsList.Count; i++)
         {
@@ -55,10 +58,12 @@ public abstract class BaseSpawner : MonoBehaviour
             }
         }
     }
+
     abstract public void BeforeSpawn();
+
     public Vector2 GenerateRandomPosition() 
     {
-        Vector2 topLeftCamCorner = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, -Camera.main.transform.position.z));
+        Vector2 topLeftCamCorner = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, -cameraTransform.position.z));
         float offset = 5;
         float radius = Vector3.Distance(topLeftCamCorner, Vector2.zero) + offset;
         float angle = Random.Range(Mathf.PI / 6, 5 * Mathf.PI / 6);;

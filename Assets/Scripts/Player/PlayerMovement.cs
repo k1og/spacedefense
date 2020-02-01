@@ -16,20 +16,24 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 newPosition;
+    Transform cameraTransform;
+    Camera cam;
 
-
-    void Start()
+    void Awake()
     {
         angle = 0;
         rb = GetComponent<Rigidbody2D>();
+        GameObject camGO = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraTransform = camGO.transform;
+        cam = camGO.GetComponent<Camera>();
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
     void Update()
     {
         mousePos = Input.mousePosition;
-        mousePos.z = -Camera.main.transform.position.z;
-        mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        mousePos.z = -cameraTransform.position.z;
+        mouseWorldPos = cam.ScreenToWorldPoint(mousePos);
     }
     void FixedUpdate()
     {
