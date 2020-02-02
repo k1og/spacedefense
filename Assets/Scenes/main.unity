@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 8221894780243436157, guid: 684366552174633458d19164bdc65b0d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8221894780243436157, guid: 684366552174633458d19164bdc65b0d,
         type: 3}
@@ -532,14 +532,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252836275}
-        m_MethodName: GoFromSettingPage
-        m_Mode: 1
+        m_MethodName: PlayClip
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CanvasSettingsPageOut
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &367438198
@@ -892,7 +892,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &865217250
 GameObject:
@@ -1880,14 +1880,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252836275}
-        m_MethodName: GoToSettingPage
-        m_Mode: 1
+        m_MethodName: PlayClip
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CanvasSettingsPageIn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1383516913
@@ -2047,7 +2047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733784817
 GameObject:
@@ -2137,7 +2137,7 @@ PrefabInstance:
     - target: {fileID: 7265170480528029730, guid: 0101b9f8414cfe542b0afb6d71a876d2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7265170480528029730, guid: 0101b9f8414cfe542b0afb6d71a876d2,
         type: 3}

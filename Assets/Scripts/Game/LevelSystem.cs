@@ -30,7 +30,7 @@ public class LevelSystem : MonoBehaviour
 
     public void StartNextLevel()
     {
-        if (!currentLevel.isPlaying) {
+        if (!currentLevel.isPlaying && !uIManager.IsAnyClipAnimating) {
             if (currentLevel.isFinished)
             {
                 // currentLevel.number++;
@@ -39,7 +39,6 @@ public class LevelSystem : MonoBehaviour
                 // currentLevel.spawnRate -= 1;
                 currentLevel.maxAsteroidHP++;
             }
-
             StartCoroutine(StartLevelCoroutine());
         }
     }
@@ -47,7 +46,8 @@ public class LevelSystem : MonoBehaviour
     IEnumerator StartLevelCoroutine()
     {
         currentLevel.isPlaying = true;
-        float currentClipLenght = uIManager.PlayCanvasOut();
+        uIManager.PlayClip("CanvasOut");
+        float currentClipLenght = uIManager.GetCurrentClipLength();
         yield return new WaitForSeconds(currentClipLenght);
         asteroidSpawner.spawnRate = currentLevel.spawnRate;
         asteroidSpawner.maxHP = currentLevel.maxAsteroidHP;
@@ -62,7 +62,7 @@ public class LevelSystem : MonoBehaviour
         playerMovement.enabled = false;
         currentLevel.isPlaying = false;
         currentLevel.isFinished = true;
-        uIManager.PlayCanvasIn();
+        uIManager.PlayClip("CanvasIn");
         yield return new WaitForSeconds(currentClipLenght);
         yield return null;
     }

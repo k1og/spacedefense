@@ -1,29 +1,29 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
     public Animator animator;
+    public bool IsAnyClipAnimating => isAnyClipAnimating;
+    private bool isAnyClipAnimating = false;
 
-    public float PlayCanvasOut()
+    public float GetCurrentClipLength()
     {
-        animator.Play("CanvasOut");
-        // !good solution
         return animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
     }
-
-    public float PlayCanvasIn()
+    public void PlayClip(string name)
     {
-        animator.Play("CanvasIn");
-        return animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        if (IsAnyClipAnimating) return;
+        animator.Play(name);
+        float duration = GetCurrentClipLength();
+        StartCoroutine(UpdateIsAnyClipAnimatingCoroutine(duration));
     }
 
-    public void GoToSettingPage()
+    IEnumerator UpdateIsAnyClipAnimatingCoroutine(float duration) 
     {
-        animator.Play("CanvasSettingsPageIn");
-    }
-
-    public void GoFromSettingPage()
-    {
-        animator.Play("CanvasSettingsPageOut");
+        isAnyClipAnimating = true;
+        yield return new WaitForSeconds(duration);
+        isAnyClipAnimating = false;
+        yield return null;
     }
 }
