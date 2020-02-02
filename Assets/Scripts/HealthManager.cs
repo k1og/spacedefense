@@ -55,7 +55,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        // if (textMesh != null)
+        if (textMesh != null)
         {
             textMesh.text = hp.ToString();
         }
