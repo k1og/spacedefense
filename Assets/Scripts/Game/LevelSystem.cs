@@ -8,10 +8,11 @@ public class LevelSystem : MonoBehaviour
     ShootingController playerShootingController;
     PlayerMovement playerMovement;
     public FallingObjectSpawner asteroidSpawner;
-    public Animator uiAnimator;
+    UIManager uIManager;
 
     void Awake()
     {
+        uIManager = FindObjectOfType<UIManager>();
         playerMovement = player.GetComponent<PlayerMovement>();
         playerShootingController = player.GetComponentInChildren<ShootingController>();
     }
@@ -27,41 +28,32 @@ public class LevelSystem : MonoBehaviour
         currentLevel.minAmointOfTime = 1;
     }
 
-    void Update()
-    {
-        if (!currentLevel.isPlaying) {
-            if (Input.GetMouseButtonDown(0))
-            {
-                StartNextLevel();
-            }
-        }
-    }
-
     public void StartNextLevel()
     {
-        if (currentLevel.isFinished)
-        {
-            // currentLevel.number++;
-            // currentLevel.minAmointOfTime++;
-            // currentLevel.minAmountOfAsteroids++;
-            // currentLevel.spawnRate -= 1;
-            currentLevel.maxAsteroidHP++;
-        }
+        if (!currentLevel.isPlaying) {
+            if (currentLevel.isFinished)
+            {
+                // currentLevel.number++;
+                // currentLevel.minAmointOfTime++;
+                // currentLevel.minAmountOfAsteroids++;
+                // currentLevel.spawnRate -= 1;
+                currentLevel.maxAsteroidHP++;
+            }
 
-        StartCoroutine(StartLevelCoroutine());
+            StartCoroutine(StartLevelCoroutine());
+        }
     }
 
     IEnumerator StartLevelCoroutine()
     {
-        uiAnimator.Play("CanvasOut");
-        float currentClipLenght = uiAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        currentLevel.isPlaying = true;
+        float currentClipLenght = uIManager.PlayCanvasOut();
         yield return new WaitForSeconds(currentClipLenght);
         asteroidSpawner.spawnRate = currentLevel.spawnRate;
         asteroidSpawner.maxHP = currentLevel.maxAsteroidHP;
         playerShootingController.StartSpawning();
         asteroidSpawner.StartSpawning();
         playerMovement.enabled = true;
-        currentLevel.isPlaying = true;
         yield return new WaitForSeconds(currentLevel.minAmointOfTime);
         yield return new WaitUntil(() => currentLevel.minAmountOfAsteroids <= asteroidSpawner.spawnedObjectsAmount);
         asteroidSpawner.StopSpawning();
@@ -70,7 +62,7 @@ public class LevelSystem : MonoBehaviour
         playerMovement.enabled = false;
         currentLevel.isPlaying = false;
         currentLevel.isFinished = true;
-        uiAnimator.Play("CanvasIn");
+        uIManager.PlayCanvasIn();
         yield return new WaitForSeconds(currentClipLenght);
         yield return null;
     }

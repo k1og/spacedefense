@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CanvasOut
+  m_Name: CanvasSettingsPageIn
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -30,17 +30,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.73333335
-        value: 61.5
-        inSlope: 328
-        outSlope: 328
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 0.75
-        value: 400
+        value: -200
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -50,36 +41,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Pages/MainPage/PlayButton
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 40
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.73333335
-        value: -20
-        inSlope: -304.83884
-        outSlope: -304.83884
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.11017978
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Pages/MainPage/SettingsButton
+    attribute: m_AnchoredPosition.x
+    path: Pages
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -91,15 +54,8 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3293222280
-      attribute: 538195251
-      script: {fileID: 0}
-      typeID: 224
-      customType: 28
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 1028010731
-      attribute: 538195251
+      path: 3786787441
+      attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
@@ -139,17 +95,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.73333335
-        value: 61.5
-        inSlope: 328
-        outSlope: 328
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 0.75
-        value: 400
+        value: -200
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -159,36 +106,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Pages/MainPage/PlayButton
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 40
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.73333335
-        value: -20
-        inSlope: -304.83884
-        outSlope: -304.83884
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.11017978
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Pages/MainPage/SettingsButton
+    attribute: m_AnchoredPosition.x
+    path: Pages
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
