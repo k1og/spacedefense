@@ -22,7 +22,7 @@ public class LevelSystem : MonoBehaviour
         currentLevel.number = 0; // get finished levels
         // currentLevel.minAmointOfTime = 5;
         // currentLevel.minAmountOfAsteroids = 5;
-        currentLevel.spawnRate = 2;
+        currentLevel.spawnRate = 0;
         // currentLevel.maxAsteroidHP = 1;
         currentLevel.minAmountOfAsteroids = 1;
         currentLevel.minAmointOfTime = 1;
@@ -33,9 +33,9 @@ public class LevelSystem : MonoBehaviour
         if (!currentLevel.isPlaying && !uIManager.IsAnyClipAnimating) {
             if (currentLevel.isFinished)
             {
-                // currentLevel.number++;
-                // currentLevel.minAmointOfTime++;
-                // currentLevel.minAmountOfAsteroids++;
+                currentLevel.number++;
+                currentLevel.minAmointOfTime++;
+                currentLevel.minAmountOfAsteroids++;
                 // currentLevel.spawnRate -= 1;
                 currentLevel.maxAsteroidHP++;
             }

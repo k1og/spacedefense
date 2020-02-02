@@ -49,7 +49,7 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.tag != "Player")
+        if (collider.tag != "Player" && collider.tag != "Bullet")
         {
             HealthManager healthManager = collider.gameObject.GetComponent<HealthManager>();
             if (healthManager != null)

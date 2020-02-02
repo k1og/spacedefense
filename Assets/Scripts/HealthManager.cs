@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
     IExplodable explodable;
-    TextMesh textMesh;
+    TextMeshPro textMesh;
     [SerializeField]
     private int hp = 1;
     public int HP
@@ -49,17 +50,12 @@ public class HealthManager : MonoBehaviour
     void Awake()
     {
         explodable = GetComponent<IExplodable>();
-        textMesh = GetComponent<TextMesh>();
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        if (meshRenderer != null)
-        {
-            meshRenderer.sortingOrder = 2;
-        }
+        textMesh = GetComponentInChildren<TextMeshPro>();
     }
 
     void Start()
     {
-        if (textMesh != null)
+        // if (textMesh != null)
         {
             textMesh.text = hp.ToString();
         }

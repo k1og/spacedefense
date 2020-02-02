@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4d215c234c7e3488ab05ed46d3d734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7495799457897557241, guid: 1c40e0a155c8353479f0fd2464424fbe, type: 3}
+  prefab: {fileID: 8426115554924835575, guid: d8ebb9d2dc6179d44b729232ed7592e5, type: 3}
   spawnCount: 5
   gameObjectsList: []
 --- !u!4 &1030835688
@@ -2047,7 +2047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733784817
 GameObject:
@@ -2099,6 +2099,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1899158391, guid: 0101b9f8414cfe542b0afb6d71a876d2, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7265170480528029730, guid: 0101b9f8414cfe542b0afb6d71a876d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2137,7 +2141,7 @@ PrefabInstance:
     - target: {fileID: 7265170480528029730, guid: 0101b9f8414cfe542b0afb6d71a876d2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7265170480528029730, guid: 0101b9f8414cfe542b0afb6d71a876d2,
         type: 3}
@@ -2164,6 +2168,11 @@ PrefabInstance:
       propertyPath: objectPool
       value: 
       objectReference: {fileID: 468074252}
+    - target: {fileID: 7265170480772362103, guid: 0101b9f8414cfe542b0afb6d71a876d2,
+        type: 3}
+      propertyPath: spawnRate
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0101b9f8414cfe542b0afb6d71a876d2, type: 3}
 --- !u!1 &2094080606
